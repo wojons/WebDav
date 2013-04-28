@@ -1546,7 +1546,7 @@ class Client
         $i = 0;
         do
         {
-            $header.=fread( $this->_fp, 1 );
+            $header.=fread( $this->_fp, 4096 ); //grab a nice chunk of data anyone seeing this called to much crank it up as high as u need it
             $i++;
         } while ( !preg_match( '/\\r\\n\\r\\n$/', $header ) && $i < $this->_maxheaderlenth );
 
